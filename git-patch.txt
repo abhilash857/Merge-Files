@@ -1,0 +1,290 @@
+Roll No :23BD1A05BQ
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/fs/Downloads/SE-Lab WEEK-3/.git/
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ nano temp.txt
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ git add .
+warning: in the working copy of 'temp.txt', LF will be replaced by CRLF the next time Git touches it
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ git commit -m "1)one"
+[master (root-commit) 3e2a4bf] 1)one
+ 1 file changed, 1 insertion(+)
+ create mode 100644 temp.txt
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ git checkout -b feature
+Switched to a new branch 'feature'
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git log
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (HEAD -> feature, master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ nano temp.txt
+
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git commit -a -m "2)Two"
+warning: in the working copy of 'temp.txt', LF will be replaced by CRLF the next time Git touches it
+[feature dd82531] 2)Two
+ 1 file changed, 1 insertion(+)
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git log
+commit dd825317d83be5ff47418d78ed855d28f63659c2 (HEAD -> feature)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:55:56 2025 +0530
+
+    2)Two
+
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ nano temp.txt
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git commit -a -m "3)Three"
+warning: in the working copy of 'temp.txt', LF will be replaced by CRLF the next time Git touches it
+[feature d0f8439] 3)Three
+ 1 file changed, 1 insertion(+)
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git log
+commit d0f84395fe65a7181d877b89f1417b11b0020c9c (HEAD -> feature)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:58:04 2025 +0530
+
+    3)Three
+
+commit dd825317d83be5ff47418d78ed855d28f63659c2
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:55:56 2025 +0530
+
+    2)Two
+
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git format-patch master -o patches
+patches/0001-2-Two.patch
+patches/0002-3-Three.patch
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ ls
+patches/  temp.txt
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ ls patches
+0001-2-Two.patch  0002-3-Three.patch
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ rm -r patches/*
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ ls patches
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git log
+commit d0f84395fe65a7181d877b89f1417b11b0020c9c (HEAD -> feature)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:58:04 2025 +0530
+
+    3)Three
+
+commit dd825317d83be5ff47418d78ed855d28f63659c2
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:55:56 2025 +0530
+
+    2)Two
+
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git format-patch -1 ^C
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git format-patch -1 3e2a4bf90d920a947808d28b37b3b4a99e26aacf -o patches
+patches/0001-1-one.patch
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature)
+$ git checkout master
+Switched to branch 'master'
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ git log
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (HEAD -> master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        patches/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ ls patches
+0001-1-one.patch
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ git am patches 0001-1-one.patch
+error: cannot stat 0001-1-one.patch: No such file or directory
+fatal: Failed to split patches.
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master)
+$ git am patches/0001-1-one.patch
+Applying: 1)one
+error: temp.txt: already exists in index
+Patch failed at 0001 1)one
+hint: Use 'git am --show-current-patch=diff' to see the failed patch
+hint: When you have resolved this problem, run "git am --continue".
+hint: If you prefer to skip this patch, run "git am --skip" instead.
+hint: To restore the original branch and stop patching, run "git am --abort".
+hint: Disable this message with "git config advice.mergeConflict false"
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master|AM 1/1)
+$ git log
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (HEAD -> master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master|AM 1/1)
+$ git checkout feature
+Switched to branch 'feature'
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ git log
+commit d0f84395fe65a7181d877b89f1417b11b0020c9c (HEAD -> feature)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:58:04 2025 +0530
+
+    3)Three
+
+commit dd825317d83be5ff47418d78ed855d28f63659c2
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:55:56 2025 +0530
+
+    2)Two
+
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ nano temp.txt
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ git commit -a -m "4)Four"
+[feature 97f7784] 4)Four
+ 1 file changed, 1 insertion(+)
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ git log
+commit 97f7784c15435b8e421a3ca357be66f912247e27 (HEAD -> feature)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 11:08:26 2025 +0530
+
+    4)Four
+
+commit d0f84395fe65a7181d877b89f1417b11b0020c9c
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:58:04 2025 +0530
+
+    3)Three
+
+commit dd825317d83be5ff47418d78ed855d28f63659c2
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:55:56 2025 +0530
+
+    2)Two
+
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ ls
+patches/  temp.txt
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ rm -r patches/*
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ ls patches
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ git format-patch -1 97f7784c15435b8e421a3ca357be66f912247e27 -o patche
+patche/0001-4-Four.patch
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (feature|AM 1/1)
+$ git checkout master
+Switched to branch 'master'
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master|AM 1/1)
+$ git status
+On branch master
+You are in the middle of an am session.
+  (fix conflicts and then run "git am --continue")
+  (use "git am --skip" to skip this patch)
+  (use "git am --abort" to restore the original branch)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        patche/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master|AM 1/1)
+$ ls patches
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master|AM 1/1)
+$ git log
+commit 3e2a4bf90d920a947808d28b37b3b4a99e26aacf (HEAD -> master)
+Author: Abhilash <abhilashvanguri@gmail.com>
+Date:   Tue Aug 12 10:54:14 2025 +0530
+
+    1)one
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master|AM 1/1)
+$ git am patches
+^C
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master|AM 1/1)
+$ git am patches/0001-4-Four.patch
+fatal: previous rebase directory .git/rebase-apply still exists but mbox given.
+
+fs@DESKTOP-GGREQK6 MINGW64 ~/Downloads/SE-Lab WEEK-3 (master|AM 1/1)
+$
